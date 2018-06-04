@@ -111,6 +111,8 @@
 
 % put your own definitions here:
 \newcommand{\trento}{T\raisebox{-0.3ex}{R}ENTo}
+\newcommand{\sqrts}{\sqrt{s_\mathrm{NN}}}
+\newcommand{\T}{\tilde{T}}
 
 % add words to TeX's hyphenation exception list
 %\hyphenation{author another created financial paper re-commend-ed Post-Script}
@@ -159,6 +161,10 @@ unified model of p-Pb and Pb-Pb collisions}
 \address{Department of Physics, Duke University, Durham, NC 27708-0305}
 
 \begin{abstract}
+  We apply a well tested hybrid transport model, which couples viscous hydrodynamics to a hadronic afterburner, to describe bulk observables in proton-lead and lead-lead collisions at \mbox{$\sqrts=5.02$~TeV}.
+  The quark-gluon plasma (QGP) initial conditions are modeled using the parametric \trento\ model with additional nucleon substructure parameters to vary the number and size of hot spots inside each nucleon, followed by a pre-equilibrium free streaming stage to match the full energy-momentum tensor of the initial state onto viscous hydrodynamics.
+  Initial condition and QGP medium parameters, such as the temperature dependence of the QGP shear and bulk viscosities, are then calibrated using Bayesian parameter estimation to describe charged particle yields, mean $p_T$ and anisotropic flow harmonics $v_2$ and $v_3$ of both collision systems in a single self-consistent framework.
+  We find that the hybrid model provides a compelling, simultaneous description of both collision systems using appropriately chosen model parameters, and present new posterior estimates for the size and shape of the nucleon and temperature dependence of QGP shear and bulk viscosities.
 \end{abstract}
 
 \begin{keyword}
@@ -180,20 +186,74 @@ unified model of p-Pb and Pb-Pb collisions}
 %% main text
 \section{Introduction}
 
+Recently, long-range multiparticle correlations have been observed in high-multiplicity p-Pb collisions which are striking similar to correlations observed in Pb-Pb collisions and commonly attributed to hydrodynamic flow.
 
-\section{Nucleon substructure}
+These correlations in Pb-Pb collisions are most naturally explained by hydrodynamic flow, a narrative which is evidenced by the global, self-consistent and highly non-trivial agreement of hydrodynamic simulations with experimental measurements.
+
+It is thus natural to wonder if a similar quantitative description of p-Pb bulk observables can be obtained from the hydrodynamic standard model.
+
+The quantitative agreement of hydrodynamic simulations with data remains the strongest evidence for the hydrodynamic picture of heavy-ion collisions.
+
+The justification for the hydrodynamic narrative in heavy-ion collisions
+
+The observation suggests that the so called ``hydrodynamic standard model'', which has been highly successful in modeling the bulk observables of heavy-ion collisions, might also be applied to the small droplets of quark-gluon plasma (QGP) produced in ultracentral p-Pb collisions.
+
+\section{Physics model}
+
+We simulate the QGP initial conditions using a modified version of the \trento\ model \cite{?} which includes parametric nucleon substructure.
+Consider the collision of two protons $A, B$ with three-dimensional densities $\rho_{A,B}$ defined as a superposition of Gaussian constituents
+\begin{equation}
+  \label{density}
+  \rho_{A,B}(\textbf{x}) = \sum\limits_{i=1}^{M} \frac{1}{(2 \pi w_c^2)^{3/2}} \exp\left(-\frac{(\textbf{x}-\textbf{x}_i)^2}{2 w_c^2}\right),
+\end{equation}
+where $M$ is the number of constituents and $w_c$ their Gaussian width.
+Here the proton's constituent positions $\textbf{x}_i$ are sampled from a Gaussian radial distribution of width $r=\sqrt{w^2 - w_c^2}$ with free parameter $w$ which varies the ensemble-averaged proton width.
+
+The two protons collide inelastically at impact parameter $b$ with probability
+\begin{align}
+  \label{pcoll}
+  P_\text{coll}(b) = 1 - \exp\left[-\sigma_\text{eff} \int dx\,dy \int dz\, \rho_A(\mathbf{x}) \int dz\, \rho_B(\mathbf{x} + \mathbf{b}) \right],
+\end{align}
+where $\sigma_\text{eff}$ is a nuisance parameter tuned to fit the total proton-proton inelastic cross section at \mbox{$\sqrts=5.02$~TeV}.
+Assuming the protons collide, each is assigned a \emph{fluctuated} participant thickness function
+\begin{equation}
+  \label{part}
+  \T_{A,B}(\mathbf{x}) = \sum\limits_{i=1}^{M} \frac{\gamma_i}{2 \pi w_c^2} \exp\left(-\frac{(\textbf{x}-\textbf{x}_i)^2}{2 w_c^2}\right),
+\end{equation}
+which integrates out the beam-axis ($\hat{z}$) dimension of Eqn.~\eqref{density} and assigns additional random weights $\gamma_i$ to each constituent sampled from a Gamma distribution with unit mean and variance $1/k^2$.
+
+The \trento\ model then deposits entropy in the proton-proton collision proportional to the generalized mean of participant matter
+\begin{equation}
+  \label{gmean}
+  \frac{dS}{d\eta} \propto \left(\frac{\T_A^p + \T_B^p}{2} \right)^{1/p},
+\end{equation}
+where the dimensionless parameter $-\infty \le p \le \infty$ modulates the scaling behavior of initial entropy deposition.
+The model generalizes readily to proton-lead and lead-lead collisions by calculating the participation probability $P_\text{coll}$ in Eqn.~\eqref{pcoll} for all pairs of colliding nucleons and summing the fluctuated participant thickness function $\T_{A,B}$ in Eqn.~\eqref{part} over all participants.
+
+We use Eqn.~\eqref{gmean} to generate boost invariant initial conditions for p-Pb and Pb-Pb collisions at $\sqrts=5.02$~TeV, and free stream the initial profiles for proper time $\tau_{fs}$.
+The full energy-momentum tensor is then matched to the \texttt{VISH2+1} hydrodynamics code which includes shear and bulk viscous corrections in the 14-moment approximation.
+The hydrodynamic evolution is subsequently matched to a microscopic Boltzmann transport model along a pre-specified switching isotherm $T_\text{sw}$, treated as a free parameter.
+We sample particles from the Cooper-Frye formula with shear and bulk viscous corrections to the distribution function \ref{?}, and simulate subsequent hadronic interactions using the \texttt{UrQMD} microscopic transport model.
+Finally, we calculate hadronic observables on the particles using the same kinematic cuts and methods used by experiment.
+
+\section{Model calibration}
+
+%which computes the density of participant matter in each nucleus from Glauber cross sections, and parametrizes local entropy deposition using a flexible functional form known as the generalized mean,
+%\begin{equation}
+%  dS/d\eta \propto \left(\frac{\T_A^p + \T_B^p}{2}\right)^{1/p}
+%\end{equation}
+%where the participant thickness functions $\T_{A,B}$ denotes the beam integrated density of participant matter in nucleus A and B respectively.
+%
 
 
-\section{Model calibration and results}
 
+%\begin{figure}
+%  \includegraphics{proton_posterior_shape}
+%  \caption{\label{fig:proton_shape}
+%  }
+%\end{figure}
 
-\begin{figure}
-  \includegraphics{proton_posterior_shape}
-  \caption{\label{fig:proton_shape}
-  }
-\end{figure}
-
-\section{Summary}
+\section{Results}
 
 %% References
 %%
