@@ -163,7 +163,7 @@ unified model of p-Pb and Pb-Pb collisions}
 \begin{abstract}
   We apply a well tested hybrid transport model, which couples viscous hydrodynamics to a hadronic afterburner, to describe bulk observables in proton-lead and lead-lead collisions at \mbox{$\sqrts=5.02$~TeV}.
   The quark-gluon plasma (QGP) initial conditions are modeled using the parametric \trento\ model with additional nucleon substructure parameters to vary the number and size of hot spots inside each nucleon, followed by a pre-equilibrium free streaming stage to match the full energy-momentum tensor of the initial state onto viscous hydrodynamics.
-  Initial condition and QGP medium parameters, such as the temperature dependence of the QGP shear and bulk viscosities, are then calibrated using Bayesian parameter estimation to describe charged particle yields, mean $p_T$ and anisotropic flow harmonics $v_2$ and $v_3$ of both collision systems in a single self-consistent framework.
+  Initial condition and QGP medium parameters, such as the temperature dependence of the QGP shear and bulk viscosities, are then calibrated using Bayesian parameter estimation to describe charged particle yields, mean $p_T$ and anisotropic flow harmonics of both collision systems in a single self-consistent framework.
   We find that the hybrid model provides a compelling, simultaneous description of both collision systems using appropriately chosen model parameters, and present new posterior estimates for the size and shape of the nucleon and temperature dependence of QGP shear and bulk viscosities.
 \end{abstract}
 
@@ -187,16 +187,11 @@ unified model of p-Pb and Pb-Pb collisions}
 \section{Introduction}
 
 Recently, long-range multiparticle correlations have been observed in high-multiplicity p-Pb collisions which are striking similar to correlations observed in Pb-Pb collisions and commonly attributed to hydrodynamic flow.
+The strongest justification for hydrodynamic behavior in Pb-Pb collisions is the global, self-consistent, and highly nontrivial agreement of hydrodynamic simulations with experiment.
+It is thus natural to wonder if similarly accurate quantitative descriptions of p-Pb bulk observables can be obtained from the hydrodynamic standard model.
 
-These correlations in Pb-Pb collisions are most naturally explained by hydrodynamic flow, a narrative which is evidenced by the global, self-consistent and highly non-trivial agreement of hydrodynamic simulations with experimental measurements.
-
-It is thus natural to wonder if a similar quantitative description of p-Pb bulk observables can be obtained from the hydrodynamic standard model.
-
-The quantitative agreement of hydrodynamic simulations with data remains the strongest evidence for the hydrodynamic picture of heavy-ion collisions.
-
-The justification for the hydrodynamic narrative in heavy-ion collisions
-
-The observation suggests that the so called ``hydrodynamic standard model'', which has been highly successful in modeling the bulk observables of heavy-ion collisions, might also be applied to the small droplets of quark-gluon plasma (QGP) produced in ultracentral p-Pb collisions.
+Perhaps the most important constraint for such a framework, is that it describe p-Pb and Pb-Pb collision data \emph{simultaneously} within the appropriate limits of applicability, using a single set of model parameters and without additional fine tuning.
+In this work we investigate the existence of such a description, and calibrate a successful hybrid model---based on viscous hydrodynamics and Boltzmann transport---to simultaneously describe p-Pb and Pb-Pb bulk observables at $\sqrts=5.02$~TeV.
 
 \section{Physics model}
 
@@ -222,6 +217,11 @@ Assuming the protons collide, each is assigned a \emph{fluctuated} participant t
 \end{equation}
 which integrates out the beam-axis ($\hat{z}$) dimension of Eqn.~\eqref{density} and assigns additional random weights $\gamma_i$ to each constituent sampled from a Gamma distribution with unit mean and variance $1/k^2$.
 
+\begin{wrapfigure}[26]{r}{.5\textwidth}
+  \includegraphics[width=.5\textwidth]{proton_posterior_shape}
+  \caption{Joint posterior probability distribution for the constituent sampling radius $w$ and constituent width $w_c$. The gray shaded region $w_c > w$ is excluded by the chosen prior.}
+\end{wrapfigure}
+
 The \trento\ model then deposits entropy in the proton-proton collision proportional to the generalized mean of participant matter
 \begin{equation}
   \label{gmean}
@@ -232,28 +232,36 @@ The model generalizes readily to proton-lead and lead-lead collisions by calcula
 
 We use Eqn.~\eqref{gmean} to generate boost invariant initial conditions for p-Pb and Pb-Pb collisions at $\sqrts=5.02$~TeV, and free stream the initial profiles for proper time $\tau_{fs}$.
 The full energy-momentum tensor is then matched to the \texttt{VISH2+1} hydrodynamics code which includes shear and bulk viscous corrections in the 14-moment approximation.
-The hydrodynamic evolution is subsequently matched to a microscopic Boltzmann transport model along a pre-specified switching isotherm $T_\text{sw}$, treated as a free parameter.
-We sample particles from the Cooper-Frye formula with shear and bulk viscous corrections to the distribution function \ref{?}, and simulate subsequent hadronic interactions using the \texttt{UrQMD} microscopic transport model.
+The hydrodynamic evolution is subsequently matched to a microscopic Boltzmann transport model along a pre-specified switching isotherm $T_\text{sw}$ treated as a free parameter.
+We sample particles from the switching isotherm with shear and bulk corrections \ref{?}, and simulate subsequent hadronic interactions using the \texttt{UrQMD} microscopic transport model.
 Finally, we calculate hadronic observables on the particles using the same kinematic cuts and methods used by experiment.
 
 \section{Model calibration}
 
-%which computes the density of participant matter in each nucleus from Glauber cross sections, and parametrizes local entropy deposition using a flexible functional form known as the generalized mean,
-%\begin{equation}
-%  dS/d\eta \propto \left(\frac{\T_A^p + \T_B^p}{2}\right)^{1/p}
-%\end{equation}
-%where the participant thickness functions $\T_{A,B}$ denotes the beam integrated density of participant matter in nucleus A and B respectively.
-%
+The parameter space of the present hybrid model is explored using Bayesian parameter estimation methods previously adapted and applied to heavy-ion collisions.
+We use a Latin hypercube algorithm to generate a small, semi-random sample of parameter values $X$, commonly referred to as a \emph{design}, which covers a conservative initial range of values in each parameter dimension.
+We then run the full hybrid model at each set of parameter values $\mathbf{x} \in X$ and calculate the midrapidity charged particle yield $dN_\text{ch}/d\eta$, mean $p_T$, and flow harmonics $v_2$, $v_3$ and $v_4$ for each collision system at $\sqrts=5.02$~TeV.
+These observables are concatenated into a single observable vector $\mathbf{y}$ for each design point $\mathbf{x}$ to form the computed observables array $Y$.
 
+The posterior probability for the true model parameters $\mathbf{x_\star}$ given the design $X$, computed observables $Y$, and experimental data $\mathbf{y}_\mathrm{exp}$ is provided by Bayes' theorem
+\begin{equation}
+  \label{posterior}
+  P(\mathbf{x_\star}| X, Y, \mathbf{y}_\mathrm{exp}) \propto P(X, Y, \mathbf{y}_\mathrm{exp} | \mathbf{x_\star}) P(\mathbf{x_\star}).
+\end{equation}
+The term $P(\mathbf{x_\star})$ on the right-side is the \emph{prior} probability which encapsulates initial uncertainty on $\mathbf{x_\star}$, while $P(X, Y, \mathbf{y}_\mathrm{exp} | \mathbf{x_\star})$ is the likelihood function, defined as the probability of observing ($X$, $Y$, $\mathbf{y}_\text{exp}$) given a proposal for $\mathbf{x}_\star$:
+\begin{equation}
+  P(X, Y, \mathbf{y}_\mathrm{exp} | \mathbf{x_\star}) \propto \exp \left[ -\frac{1}{2}(\mathbf{y}(\mathbf{x_\star}) - \mathbf{y}_\mathrm{exp})^\top \Sigma_y^{-1} (\mathbf{y}(\mathbf{x_\star}) - \mathbf{y}_\mathrm{exp}) \right].
+\end{equation}
+Here $\Sigma_y$ on the right-side of the likelihood is the covariance matrix which combines various sources of experimental, model and emulator uncertainty.
 
-
-%\begin{figure}
-%  \includegraphics{proton_posterior_shape}
-%  \caption{\label{fig:proton_shape}
-%  }
-%\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{region_shear_bulk}
+  \caption{Posterior 90\% credible regions for the temperature dependent shear viscosity (left) and temperature dependent bulk viscosity (right) from the present combined p-Pb and Pb-Pb analysis at $\sqrts=5.02$~TeV (orange band), compared to a previous Bayesian analysis of Pb-Pb collisions at $\sqrts=2.76$ and $5.02$~TeV.}
+\end{figure}
 
 \section{Results}
+
+We perform Markov-chain Monte Carlo (MCMC) importance sampling on the posterior probability in Eqn.~\eqref{posterior}, histogram the MCMC samples, and marginalize over all but one (or two) model parameters to visualize their posterior distribution.
 
 %% References
 %%
