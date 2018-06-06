@@ -1162,7 +1162,7 @@ FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
   title empty$ 'skip$ 'setup.inlinelink if$ % urlbst
-  format.title "title" output.check
+  % format.title "title" output.check
   crossref missing$
     { journal
       "journal" output.check
@@ -1177,7 +1177,7 @@ FUNCTION {article}
   format.journal.pages
   format.note output
   fin.entry
-  write.url
+  % write.url
 }
 
 FUNCTION {book}
@@ -1370,15 +1370,15 @@ FUNCTION {misc}
 FUNCTION {phdthesis}
 { output.bibitem
   format.authors "author" output.check
-  title empty$ 'skip$ 'setup.inlinelink if$ % urlbst
-  format.title "title" output.check
+  % title empty$ 'skip$ 'setup.inlinelink if$ % urlbst
+  % format.title "title" output.check
   bbl.phdthesis format.thesis.type output.nonnull
   school "school" output.check
   address output
   format.note output
   format.date "year" output.check
   fin.entry
-  write.url
+  % write.url
 }
 
 FUNCTION {proceedings}
