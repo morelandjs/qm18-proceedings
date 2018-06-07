@@ -57,7 +57,7 @@
 
 \section{Introduction}
 
-Recently, long-range multiparticle correlations have been observed in high-multiplicity p-Pb collisions which are striking similar to correlations observed in Pb-Pb collisions and commonly attributed to hydrodynamic flow.
+Recently, long-range multiparticle correlations have been observed in high-multiplicity p-Pb collisions which are strikingly similar to correlations observed in Pb-Pb collisions and commonly attributed to hydrodynamic flow.
 The strongest justification for hydrodynamic behavior in Pb-Pb collisions is the global, self-consistent, and highly nontrivial agreement of hydrodynamic simulations with experiment.
 It is thus natural to wonder if similarly accurate quantitative descriptions of p-Pb bulk observables can be obtained from the hydrodynamic standard model.
 Perhaps the most important constraint for such a framework, is that it describe p-Pb and Pb-Pb collision data \emph{simultaneously} within the appropriate limits of applicability, using a single set of model parameters and without additional fine tuning.
@@ -109,7 +109,7 @@ Finally, we calculate hadronic observables on the particles using the same kinem
 
 \begin{wrapfigure}[25]{r}{.45\textwidth}
   \includegraphics[width=.45\textwidth]{proton_posterior_shape}
-  \caption{\label{fig:proton_shape} Joint posterior probability distribution for the constituent sampling radius $w$ and constituent width $w_c$. The gray shaded region $w_c > w$ is excluded by the chosen prior.}
+  \caption{\label{fig:proton_shape} Joint posterior probability distribution for the constituent sampling radius $r$ and constituent width $w$. The gray shaded region $w > r$ is excluded by the chosen prior.}
 \end{wrapfigure}
 
 \section{Model calibration}
@@ -145,14 +145,19 @@ We observe good agreement between the calibrated model and experiment, as illust
 Figure~\ref{fig:proton_shape} shows the posterior distribution on the constituent sampling radius $r$ and constituent width $w$.
 The lower-white trapezoidal region is our chosen prior and was constructed to exclude the upper-gray triangular region $w > r$ which samples constituent widths larger than our target proton width.
 The posterior distribution, shown by the blue ellipsoidal region, is highly constrained and prefers a rather large sampling radius $r=0.97_{-0.16}^{+0.19}$~fm and large constituent width $w=0.47_{-0.16}^{+0.22}$~fm.
-It's important to note that our sampling radius $r$ is \emph{not} equivalent to the proton's center of mass root-mean-square radius $\sqrt{\langle r^2 \rangle}$ often quoted when discussing the proton size, although differences between the two are small when the number of constituents is large.
+%It's important to note that our sampling radius $r$ is \emph{not} equivalent to the proton's center of mass root-mean-square radius $\sqrt{\langle r^2 \rangle}$ often quoted when discussing the proton size, although differences between the two are small when the number of constituents is large.
+The marginalized posterior on the constituent number (not shown) disfavors one constituent (no substructure), but has no strong preference for a specific number of constituents $M>1$.
 
-In Fig.~\ref{fig:viscosity} we compare the posterior median and 90\% credible regions for the temperature dependence of the QGP shear viscosity $(\eta/s)(T)$ and bulk viscosity $(\zeta/s)(T)$ which were parametrized using the functional forms detailed in Ref~\cite{Bass:2017zyn}.
-The orange line/band are obtained from the present analysis of p-Pb and Pb-Pb data at $\sqrts=5.02$~TeV, while the blue line/band are from an independent analysis of Pb-Pb data at two different collision energies $\sqrts=2.76$ and $5.02$~TeV \citetemp{Bernhard, 2018}.
-We find that our estimates for the shear viscosity are fully consistent between the two studies, with the present p-Pb and Pb-Pb analysis at $\sqrts=5.02$~TeV providing significantly less constraining power than the previous Pb-Pb analysis at $\sqrts=2.76$ and $5.02$~TeV.
+In Fig.~\ref{fig:viscosity} we compare the posterior median and 90\% credible regions for the temperature dependence of the QGP shear and bulk viscosities which were parametrized using the functional forms detailed in Ref~\cite{Bass:2017zyn}.
+The orange line/band are obtained from the present analysis of p-Pb and Pb-Pb data at $\sqrts=5.02$~TeV, while the blue line/band are from an independent analysis of Pb-Pb data at two different beam energies $\sqrts=2.76$ and $5.02$~TeV \citetemp{Bernhard, 2018}.
+We find that our estimates for the shear viscosity are fully consistent between the two studies, with the present p-Pb and Pb-Pb analysis providing significantly less constraining power than the Pb-Pb analysis at $\sqrts=2.76$ and $5.02$~TeV.
 This is not surprising, given the importance of multiple beam energies to constraining temperature dependent quantities and the stronger expected effect of viscosity on larger, longer-lived collision systems.
-Similarly, the 90\% credible regions for the QGP bulk viscosity are fully consistent between the two studies, with both studies generally favoring smaller values of $\zeta/s$ relative to $\eta/s$.
-Moreover, the present analysis appears to provide a similar degree of constraining power on $\zeta/s$ which suggests that small-systems may play an important role in understanding the radial expansion of the produced QGP medium.
+Similarly, the 90\% credible regions on the QGP bulk viscosity are also consistent between the two studies, with both analyses favoring smaller values of $\zeta/s$ relative to $\eta/s$.
+Moreover, the present study appears to provide a similar degree of constraining power on $\zeta/s$ which suggests that small-systems may play an important role in understanding the radial expansion of the produced QGP medium.
+
+\vspace{.5em}\noindent\textbf{Acknowledgements}:
+The Duke QCD group acknowledges support by grant DE-FG02-05ER41367 (DOE).
+CPU time was provided by the DOE funded National Energy Research Scientific Computing Center (NERSC).
 
 \bibliographystyle{elsarticle-num}
 \bibliography{proceedings}
