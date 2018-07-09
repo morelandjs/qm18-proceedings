@@ -58,8 +58,8 @@
 
 Recently, long-range multiparticle correlations have been observed in high-multiplicity p-Pb collisions which are strikingly similar to correlations observed in Pb-Pb collisions and commonly attributed to hydrodynamic flow.
 The strongest justification for hydrodynamic behavior in Pb-Pb collisions is the global, self-consistent, and highly nontrivial agreement of hydrodynamic simulations with experiment.
-It is thus natural to wonder if similarly accurate quantitative descriptions of p-Pb bulk observables can be obtained from the hydrodynamic standard model.
-Perhaps the most important constraint for such a framework, is that it describe p-Pb and Pb-Pb collision data \emph{simultaneously} within the appropriate limits of applicability, using a single set of model parameters and without additional fine tuning.
+It is thus natural to wonder if similarly accurate quantitative descriptions of p-Pb bulk observables can be obtained from a state-of-the-art hydrodynamic model.
+Perhaps the most important constraint for such a framework, is that it describes p-Pb and Pb-Pb collision data \emph{simultaneously} within the appropriate limits of applicability, using a single set of model parameters and without additional fine tuning.
 In this work we investigate the existence of such a description, and calibrate a successful hybrid model---based on viscous hydrodynamics and Boltzmann transport---to simultaneously describe p-Pb and Pb-Pb bulk observables at $\sqrts=5.02$~TeV.
 
 \section{Physics model}
@@ -106,7 +106,7 @@ The hydrodynamic evolution is subsequently matched to a microscopic Boltzmann tr
 We sample particles from the switching isotherm with shear and bulk corrections \cite{Bernhard:2018hnz}, and simulate subsequent hadronic interactions using the \texttt{UrQMD} microscopic transport model \cite{Bass:1998ca}.
 Finally, we calculate hadronic observables on the particles using the same kinematic cuts and methods used by experiment.
 
-\begin{wrapfigure}[25]{r}{.45\textwidth}
+\begin{wrapfigure}[23]{r}{.45\textwidth}
   \includegraphics[width=.45\textwidth]{proton_posterior_shape}
   \caption{\label{fig:proton_shape} Joint posterior probability distribution for the constituent sampling radius $r$ and constituent width $w$. The gray shaded region $w > r$ is excluded by the chosen prior.}
 \end{wrapfigure}
@@ -131,7 +131,7 @@ Here $\Sigma_y$ on the right-side is the covariance matrix which combines variou
 \begin{figure}
   \centering
   \includegraphics[width=.9\textwidth]{region_shear_bulk}
-  \caption{Posterior 90\% credible regions for the temperature dependent shear viscosity (left) and temperature dependent bulk viscosity (right) from the present combined p-Pb and Pb-Pb analysis at $\sqrts=5.02$~TeV (orange band), compared to a previous Bayesian analysis of Pb-Pb collisions at $\sqrts=2.76$ and $5.02$~TeV.}
+  \caption{Posterior 90\% credible regions for the temperature dependent shear viscosity (left) and temperature dependent bulk viscosity (right) from the present combined p-Pb and Pb-Pb analysis at $\sqrts=5.02$~TeV (orange hatch), compared to a previous Bayesian analysis of Pb-Pb collisions at $\sqrts=2.76$ and $5.02$~TeV (blue band) \cite{Bernhard:2016tnd}.}
   \label{fig:viscosity}
 \end{figure}
 We then perform Markov-chain Monte Carlo (MCMC) importance sampling on the posterior probability in Eqn.~\eqref{posterior}, and histogram the MCMC samples to visualize the marginalized posterior distribution of specific model parameters.
@@ -152,7 +152,7 @@ The orange line/band are obtained from the present analysis of p-Pb and Pb-Pb da
 We find that our estimates for the shear viscosity are fully consistent between the two studies, with the present p-Pb and Pb-Pb analysis providing significantly less constraining power than the Pb-Pb analysis at $\sqrts=2.76$ and $5.02$~TeV.
 This is not surprising, given the importance of multiple beam energies to constraining temperature dependent quantities and the stronger expected effect of viscosity on larger, longer-lived collision systems.
 Similarly, the 90\% credible regions on the QGP bulk viscosity are also consistent between the two studies, with both analyses favoring smaller values of $\zeta/s$ relative to $\eta/s$.
-Moreover, the present study appears to provide a similar degree of constraining power on $\zeta/s$ which suggests that small-systems may play an important role in understanding the radial expansion of the produced QGP medium.
+Moreover, the present study appears to provide a similar degree of constraining power on $\zeta/s$ which suggests that small-systems may play an important role in understanding the produced medium.
 
 \vspace{.5em}\noindent\textbf{Acknowledgements}:
 The Duke QCD group acknowledges support by grants no.\ NSF-ACI-1550225 (NSF) and DE-FG02-05ER41367 (DOE).
