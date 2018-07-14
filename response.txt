@@ -1,0 +1,2 @@
+I've implemented all of the (small) requested changes by the referee and the editors.
+In order to make the page length fit, I dropped a small bit of text in the summary which was redundant.

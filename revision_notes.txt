@@ -1,0 +1,14 @@
+1) Introduction, line 6, page 1: replaced "the hydrodynamic standard model" with "a state-of-the-art hydrodynamic model"
+
+2) Introduction, line 7, page 1: "it describe" -> "it describes"
+
+3) Figure 1, page 2: font was made bigger for both panels left and right and for all x and y axis.
+
+4) General and Figure 2, page 3: snippet of text dropped from summary to fit manuscript into 4 pages. Fig.2 also reduced slightly in size.
+
+5) Figure 3, page 4: added "(blue band)" caption label. Added reference "[6]" at the end of the caption. Used "hatched" region for one of the data samples.
+
+6) References, page 4: fixed reference style for consistency.
+
+7) Changed the variable names for the nucleon width and constituent width to be
+consistent with a current publication I am drafting.
